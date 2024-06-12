@@ -101,14 +101,15 @@ function AudioPlayer() {
     function handleEnded(){
         switch (repeatShuffle.type.name) {
             case "MdRepeat":
-                handleNextPrevMusic(1)
+                handleNextPrevMusic(1);
                 break;
             case "MdOutlineRepeatOneOn":
-                audioCurrent.current.play()
+                audioCurrent.current.play();
                 break;
             case "MdShuffleOn":
-                setMusicNumber(randomMusic(musicNumber,audioData.length))
-        
+                const randomNextMusic = randomMusic(musicNumber,audioData.length);
+                setMusicNumber(randomNextMusic);
+                break;
             default:
                 handleNextPrevMusic(1)
                 break;

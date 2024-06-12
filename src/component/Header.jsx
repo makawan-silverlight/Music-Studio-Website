@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import logo from '../assets/images/logo.png'
 import { GrLanguage,GrMenu,GrClose } from "react-icons/gr";
-function Header() {
+function Header({ navItem }) {
     const [openMenu,setOpenMenu] = useState(false);
 
-    const navItem = [
-        {link : "Overview", path : "#home"},
-        {link : "Feature", path : "#feature"},
-        {link : "About", path : "#about"},
-        {link : "Pricing", path : "#pricing"}
-    ]
+    
     function toggleMenu () {
         setOpenMenu(!openMenu);
     }
