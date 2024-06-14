@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll';
 import logo from '../assets/images/logo.png'
 import { FaSquareFacebook,FaSquareInstagram,FaSquareXTwitter,FaSpotify } from "react-icons/fa6";
 
@@ -26,7 +27,7 @@ function Footer({navItem}) {
                     <h4 className='text-xl font-bold mt-5'>Platform</h4>
                     <nav className='space-y-3 mt-8 list-none'>
                         {navItem.map(({link,path},index) => {
-                            return <li key={link + index} ><a className='hover:text-Thirdary duration-300' href={path}>{link}</a></li>
+                            return <li key={link + index} ><Link className='hover:text-Thirdary duration-300 cursor-pointer' offset={-100} to={path}>{link}</Link></li>
                         })}
                     </nav>
                 </div>

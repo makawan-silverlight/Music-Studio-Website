@@ -10,10 +10,10 @@ import Footer from './component/Footer'
 function App() {
 
   const navItem = [
-    {link : "Overview", path : "#home"},
-    {link : "Feature", path : "#feature"},
-    {link : "About", path : "#about"},
-    {link : "Pricing", path : "#pricing"}
+    {link : "Overview", path : "home"},
+    {link : "Feature", path : "feature"},
+    {link : "About", path : "about"},
+    {link : "Pricing", path : "pricing"}
 ]
 
   return (

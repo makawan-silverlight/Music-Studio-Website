@@ -5,6 +5,8 @@ import { audioData } from '../../data'
 import MusicList from './MusicList'
 import Timer from "../utils/Timer";
 import randomMusic from "../utils/randomMusic";
+import { fadeIn } from '../utils/Variants'
+import { motion } from 'framer-motion'
 
 function AudioPlayer() {
     const [musicNumber,setMusicNumber] = useState(0);
@@ -141,7 +143,12 @@ function AudioPlayer() {
             <div className="w-40 h-40 blur-sm circle-gradient rounded-full absolute -top-10 -left-10 lg:-top-8 lg:left-12"></div>
             <div className="w-60 h-60 blur-sm circle-gradient2 rounded-full absolute -bottom-10 -right-10 lg:-bottom-8 lg:right-12"></div>
             <div className="w-20 h-20 blur-xl bg-[#08e2ff] rounded-full absolute -top-6 -right-4 lg:-top-2 lg:right-28"></div>
-            <main className=" w-full lg:w-[360px] max-w-[360px] p-6 relative overflow-hidden rounded-2xl border border-Thirdary backdrop-blur-sm shadow-[0px_0px_20px_0px_rgba(0,0,0,0.2)] space-y-2 lg:space-y-4">
+            <motion.main
+            variants={fadeIn("left",0.2)}
+            initial={"hidden"}
+            whileInView={"show"}
+            viewport={{once:false}}
+            className=" w-full lg:w-[360px] max-w-[360px] p-6 relative overflow-hidden rounded-2xl border border-Thirdary backdrop-blur-sm shadow-[0px_0px_20px_0px_rgba(0,0,0,0.2)] space-y-2 lg:space-y-4">
                 {/* navigation bar */}
                 <nav className="flex justify-between items-center text-xl">
                     <div className="cursor-pointer" onClick={toggleOpenList}>
@@ -196,7 +203,7 @@ function AudioPlayer() {
                 <audio src={audioData[musicNumber].src} hidden onLoadedMetadata={handleOnLoadMetadata} onTimeUpdate={handleTimeUpdate} onEnded={handleEnded} ref={audioCurrent}></audio>
                 <MusicList closeList={closeList} audioData={audioData} openList={openList} musicNumber={musicNumber} setMusicNumber={setMusicNumber} />
 
-            </main>
+            </motion.main>
 
             
 
