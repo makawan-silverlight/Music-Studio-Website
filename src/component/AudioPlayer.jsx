@@ -16,9 +16,11 @@ function AudioPlayer() {
     const [currentTime,setCurrentTime] = useState(0);
     const [volume,setVolume] = useState(50);
     const [repeatShuffle,setRepeatShuffle] = useState(<MdRepeat/>);
+    const [strShuffle,setStrShuffle] = useState("MdRepeat");
     const [volumeState,setVolumeState] = useState(volume);
     
     const audioCurrent = useRef();
+    const shuffleBtn = useRef();
 
     function togglePlayPause () {
         if(isPlaying){
@@ -84,15 +86,18 @@ function AudioPlayer() {
     }
 
     function handleRepeatShuffle(){
-        switch (repeatShuffle.type.name) {
+        switch (shuffleBtn.current.id) {
             case "MdRepeat":
                 setRepeatShuffle(<MdOutlineRepeatOneOn/>)
+                setStrShuffle("MdOutlineRepeatOneOn")
                 break;
             case "MdOutlineRepeatOneOn":
                 setRepeatShuffle(<MdShuffleOn/>)
+                setStrShuffle("MdShuffleOn")
                 break;
             case "MdShuffleOn":
                 setRepeatShuffle(<MdRepeat/>)
+                setStrShuffle("MdRepeat")
                 break;
             default: setRepeatShuffle(<MdRepeat/>)
                 break;
@@ -101,7 +106,7 @@ function AudioPlayer() {
     }
 
     function handleEnded(){
-        switch (repeatShuffle.type.name) {
+        switch (shuffleBtn.current.id) {
             case "MdRepeat":
                 handleNextPrevMusic(1);
                 break;
@@ -182,7 +187,7 @@ function AudioPlayer() {
 
                 {/* controls */}
                 <div className="text-4xl flex justify-between w-full">
-                    <button className="text-3xl hover:text-slate-300 duration-300" onClick={handleRepeatShuffle}>{repeatShuffle}</button>
+                    <button id={strShuffle} className="text-3xl hover:text-slate-300 duration-300" onClick={handleRepeatShuffle} ref={shuffleBtn} >{repeatShuffle}</button>
                     <button className="hover:text-slate-300 duration-300" onClick={() => {handleNextPrevMusic(-1)}}><MdSkipPrevious/></button>
                     <button className="w-12 h-12 gradient-btn rounded-full flex justify-center items-center" onClick={togglePlayPause}>
                         <div className="w-9 h-9 gradient-bg rounded-full flex justify-center items-center text-2xl">
