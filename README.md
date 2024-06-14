@@ -1,8 +1,14 @@
-# React + Vite
+# Silver Studio Music Landing Page Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+create website using:
+- React JS (vite)
+- Tailwind CSS
+- Framer Motion
+- React-scroll
+- React-icons
 
-Currently, two official plugins are available:
+### DEMO
+- Live Site URL: [https://silver-studio-website.vercel.app/](https://silver-studio-website.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Screenshot
+![image](https://github.com/makawan-silverlight/Music-Studio-Website/assets/151676624/0b38c1bb-0412-4d7b-8fb2-c42cacf511ae)
